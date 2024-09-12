@@ -7,7 +7,7 @@ public class Widgets extends BaseTest{
         WidgetsPageObjects widgets= new WidgetsPageObjects(driver);
         widgets.slider();
         widgets.progressbar();
-
+        widgets.tooltips();
     }
 
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.xml.xpath.XPath;
 import java.time.Duration;
 
 public class WidgetsPageObjects {
@@ -38,6 +39,14 @@ private WebElement SliderTooltip;
     @FindBy(xpath = "//div[@id='progressBar']")
     private WebElement ProgressBarTooltip;
 
+    //tooltips
+    @FindBy(xpath = "//span[contains(text(),'Tool Tips')]")
+    private WebElement ToolTipTab;
+@FindBy(xpath="//button[@id='toolTipButton']")
+    private WebElement Hoverbutton;
+
+
+
     public void slider() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
         WidgetsCard.click();
@@ -59,9 +68,13 @@ private WebElement SliderTooltip;
         String ProgressBarTooltip = "0";
         while (ProgressBarTooltip.equals("50%")) {
             StopButton.click();
-
-//System.out.println(ProgressBarTooltip);
         }
         System.out.println("Progress bar crossed 50%!");
+    }
+
+    public void tooltips(){
+        ToolTipTab.click();
+        Actions actions = new Actions(driver);
+        actions.moveToElement(Hoverbutton).perform();
     }
 }
