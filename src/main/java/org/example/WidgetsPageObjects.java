@@ -28,16 +28,22 @@ private WebElement SliderTab;
 @FindBy(xpath="//input[@class='range-slider range-slider--primary']")
 private WebElement SliderTooltip;
 
+//progress bar
+    @FindBy(xpath="//span[contains(text(),'Progress Bar')]")
+    private WebElement ProgressBar;
+    @FindBy(xpath = "//button[@id='startStopButton']")
+    private WebElement StartStopButton;
+    @FindBy(xpath="//button[contains(text(),'Stop')]")
+    private WebElement StopButton;
+    @FindBy(xpath = "//div[@id='progressBar']")
+    private WebElement ProgressBarTooltip;
+
     public void slider() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
         WidgetsCard.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(widgets));
-//    widgets.click();
-//        widgets.click();
-//        wait.until(ExpectedConditions.visibilityOf(SliderTab));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SliderTab);
-
      SliderTab.click();
         Actions moveSlider = new Actions(driver);
   moveSlider.clickAndHold(SliderTooltip).moveByOffset(0, 40).release().perform(); // Adjust the x-offset value as needed
@@ -45,6 +51,17 @@ private WebElement SliderTooltip;
 
     }
 
+    public void progressbar() throws InterruptedException {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ProgressBar);
+        ProgressBar.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", StartStopButton);
+        StartStopButton.click();
+        String ProgressBarTooltip = "0";
+        while (ProgressBarTooltip.equals("50%")) {
+            StopButton.click();
 
-
+//System.out.println(ProgressBarTooltip);
+        }
+        System.out.println("Progress bar crossed 50%!");
+    }
 }
