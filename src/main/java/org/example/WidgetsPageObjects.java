@@ -44,7 +44,12 @@ private WebElement SliderTooltip;
     private WebElement ToolTipTab;
 @FindBy(xpath="//button[@id='toolTipButton']")
     private WebElement Hoverbutton;
+@FindBy(xpath = "//button[@aria-describedby='buttonToolTip']")
+private WebElement HoverTooltip;
 
+//datepicker
+    @FindBy(xpath = "//div[@id='datePickerContainer']")
+    private WebElement DatePickerTab;
 
 
     public void slider() {
@@ -69,12 +74,25 @@ private WebElement SliderTooltip;
         while (ProgressBarTooltip.equals("50%")) {
             StopButton.click();
         }
-        System.out.println("Progress bar crossed 50%!");
     }
 
-    public void tooltips(){
+    public String tooltips(){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ToolTipTab);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(ToolTipTab));
         ToolTipTab.click();
         Actions actions = new Actions(driver);
         actions.moveToElement(Hoverbutton).perform();
+        String tooltipText = HoverTooltip.getText();
+        System.out.println("Tooltip text: " + tooltipText);
+        return tooltipText;
+
+    }
+
+    public void datepicker(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(DatePickerTab));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", DatePickerTab);
+        DatePickerTab.click();
     }
 }

@@ -1,4 +1,5 @@
 import org.example.WidgetsPageObjects;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Widgets extends BaseTest{
@@ -8,6 +9,8 @@ public class Widgets extends BaseTest{
         widgets.slider();
         widgets.progressbar();
         widgets.tooltips();
+       // Assert.assertEquals(widgets.tooltips(), "You hovered over the Button");
+        widgets.datepicker();
     }
 
 }
