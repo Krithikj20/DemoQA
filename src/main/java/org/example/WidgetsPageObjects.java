@@ -48,9 +48,12 @@ private WebElement SliderTooltip;
 private WebElement HoverTooltip;
 
 //datepicker
-    @FindBy(xpath = "//div[@id='datePickerContainer']")
+    @FindBy(xpath = "(//li[@id='item-2'])[3]")
     private WebElement DatePickerTab;
-
+    @FindBy(xpath="//input[@id='datePickerMonthYearInput']")
+    private WebElement DatePickerMonthYearInput;
+@FindBy(xpath="//div[contains(@class, 'react-datepicker__day') and contains(@class, 'react-datepicker__day--020') and contains(text(),'20')]")
+private WebElement Date;
 
     public void slider() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
@@ -94,5 +97,8 @@ private WebElement HoverTooltip;
         wait.until(ExpectedConditions.visibilityOf(DatePickerTab));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", DatePickerTab);
         DatePickerTab.click();
+        DatePickerMonthYearInput.click();
+        wait.until(ExpectedConditions.visibilityOf(Date));
+        Date.click();
     }
 }
