@@ -41,8 +41,11 @@ private WebElement DragMe;
 private WebElement DropMe;
 
 //dragggable
-@FindBy(xpath = "//span[contains(text(),'Draggable')]")
-private WebElement DraggableTab;
+@FindBy(xpath = "//span[contains(text(),'Dragabble')]")
+private WebElement dragabbleTab;
+
+    @FindBy(xpath = "//div[@id='dragBox']")
+    private WebElement dragBoxTab;
 
 
     public void resizableFlow() {
@@ -82,7 +85,30 @@ private WebElement DraggableTab;
         System.out.println("Drag and Drop action performed successfully.");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(DropMe)).click();
+    }
+    public void dragabble() {
+        // Scroll into view for the draggable tab
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dragabbleTab);
 
-       // DraggableTab.click();
+        // Wait until the draggable tab is clickable
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(dragabbleTab));
+
+        // Click on the draggable tab
+        dragabbleTab.click();
+
+        // Wait for the draggable box to be present and visible
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOf(dragBoxTab));
+
+        // Scroll into view for the drag box
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dragBoxTab);
+
+        // Perform the drag and drop action
+        Actions actions = new Actions(driver);
+        actions.clickAndHold(dragBoxTab)
+                .moveByOffset(100, 100) // Drag to the desired offset
+                .release()
+                .perform();
     }
 }

@@ -6,7 +6,8 @@ public class Interactions extends BaseTest{
     public void interaction() {
         InteractionsPageObjects interactions = new InteractionsPageObjects(driver);
         interactions.resizableFlow();
-        interactions.droppable();
+       // interactions.droppable();
+        interactions.dragabble();
 
     }
 }
