@@ -7,5 +7,6 @@ public class Interactions extends BaseTest{
         InteractionsPageObjects interactions = new InteractionsPageObjects(driver);
         interactions.resizableFlow();
         interactions.droppable();
+
     }
 }

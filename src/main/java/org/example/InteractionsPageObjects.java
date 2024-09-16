@@ -6,6 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class InteractionsPageObjects {
     public WebDriver driver;
@@ -20,6 +24,8 @@ public class InteractionsPageObjects {
     private WebElement InteractionsCard;
     @FindBy(xpath = "//span[contains(text(),'Resizable')]")
     private WebElement ResizableTab;
+
+
     @FindBy(xpath = "(//span[@class='react-resizable-handle react-resizable-handle-se'])[1]")
     private WebElement dragSource;
     @FindBy(xpath = "//div[@class='constraint-area']")
@@ -29,6 +35,14 @@ public class InteractionsPageObjects {
   //droppable
   @FindBy(xpath="//span[contains(text(),'Droppable')]")
   private WebElement DroppableTab;
+@FindBy(xpath="//div[@id='draggable']")
+private WebElement DragMe;
+@FindBy(xpath="(//div[@id='droppable' and @class='drop-box ui-droppable'])[1]")
+private WebElement DropMe;
+
+//dragggable
+@FindBy(xpath = "//span[contains(text(),'Draggable')]")
+private WebElement DraggableTab;
 
 
     public void resizableFlow() {
@@ -60,5 +74,15 @@ public class InteractionsPageObjects {
     public void droppable(){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", DroppableTab);
         DroppableTab.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", DragMe);
+
+        Actions actions = new Actions(driver);
+        actions.dragAndDrop(DragMe, DropMe).perform();
+
+        System.out.println("Drag and Drop action performed successfully.");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(DropMe)).click();
+
+       // DraggableTab.click();
     }
 }
