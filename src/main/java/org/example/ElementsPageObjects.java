@@ -18,9 +18,11 @@ public class ElementsPageObjects {
         PageFactory.initElements(driver, this);
     }
 
-    //textbox
+
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[1]")
     private WebElement ElementsCard;
+
+    //textbox
     @FindBy(xpath = "//span[@class='text' and contains(text(),'Text Box')]")
     private WebElement TextBox;
     @FindBy(xpath = "//input[@id='userName']")
