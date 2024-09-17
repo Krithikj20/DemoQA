@@ -43,15 +43,20 @@ private WebElement DropMe;
 //dragggable
 @FindBy(xpath = "//span[contains(text(),'Dragabble')]")
 private WebElement dragabbleTab;
+@FindBy(xpath = "//div[@id='dragBox']")
+private WebElement dragBoxTab;
 
-    @FindBy(xpath = "//div[@id='dragBox']")
-    private WebElement dragBoxTab;
+//selectable
+    @FindBy(xpath="//span[contains(text(),'Sortable')]")
+    private WebElement SortableTab;
 
 
     public void resizableFlow() {
         // Scroll to the interactions card and click on the resizable tab
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", InteractionsCard);
         InteractionsCard.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ResizableTab);
+
         ResizableTab.click();
 
         // Get the current width and height of the resizable box (dragTarget)
@@ -111,4 +116,13 @@ private WebElement dragabbleTab;
                 .release()
                 .perform();
     }
+    public void sortable()
+    {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", InteractionsCard);
+        InteractionsCard.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SortableTab);
+        SortableTab.click();
+
+    }
+
 }

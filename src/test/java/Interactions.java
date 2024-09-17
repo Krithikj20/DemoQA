@@ -1,13 +1,14 @@
 import org.example.InteractionsPageObjects;
-import org.testng.annotations.Test;
+import org.junit.Test;
 
 public class Interactions extends BaseTest{
     @Test
     public void interaction() {
         InteractionsPageObjects interactions = new InteractionsPageObjects(driver);
-        interactions.resizableFlow();
+      // interactions.resizableFlow();
        // interactions.droppable();
-        interactions.dragabble();
+      //  interactions.dragabble();
+        interactions.sortable();
 
     }
 }

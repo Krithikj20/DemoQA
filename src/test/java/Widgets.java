@@ -7,7 +7,7 @@ public class Widgets extends BaseTest{
     public void testWidgets() throws InterruptedException {
         WidgetsPageObjects widgets= new WidgetsPageObjects(driver);
         widgets.slider();
-       // widgets.progressbar();
+        widgets.progressbar();
        // widgets.tooltips();
        // Assert.assertEquals(widgets.tooltips(), "You hovered over the Button");
         widgets.datepicker();
