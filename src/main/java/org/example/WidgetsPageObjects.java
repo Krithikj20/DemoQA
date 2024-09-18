@@ -9,7 +9,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.xml.xpath.XPath;
 import java.time.Duration;
 
 public class WidgetsPageObjects {
@@ -21,15 +20,15 @@ public class WidgetsPageObjects {
     }
     @FindBy(xpath="(//div[@class='card mt-4 top-card'])[4]")
     private WebElement WidgetsCard;
-@FindBy(xpath = "(//div[@class='header-wrapper'])[4]")
+    @FindBy(xpath = "(//div[@class='header-wrapper'])[4]")
     private WebElement widgets;
 
-@FindBy(xpath="//span[contains(text(),'Slider')]")
-private WebElement SliderTab;
-@FindBy(xpath="//input[@class='range-slider range-slider--primary']")
-private WebElement SliderTooltip;
+    @FindBy(xpath="//span[contains(text(),'Slider')]")
+    private WebElement SliderTab;
+    @FindBy(xpath="//input[@class='range-slider range-slider--primary']")
+    private WebElement SliderTooltip;
 
-//progress bar
+    //progress bar
     @FindBy(xpath="//span[contains(text(),'Progress Bar')]")
     private WebElement ProgressBar;
     @FindBy(xpath = "//button[@id='startStopButton']")
@@ -38,22 +37,24 @@ private WebElement SliderTooltip;
     private WebElement StopButton;
     @FindBy(xpath = "//div[@id='progressBar']")
     private WebElement ProgressBarTooltip;
+    @FindBy(xpath="//div[@class='progress-bar bg-info']")
+    private WebElement tool;
 
     //tooltips
     @FindBy(xpath = "//span[contains(text(),'Tool Tips')]")
     private WebElement ToolTipTab;
-@FindBy(xpath="//button[@id='toolTipButton']")
+    @FindBy(xpath="//button[@id='toolTipButton']")
     private WebElement Hoverbutton;
-@FindBy(xpath = "//button[@aria-describedby='buttonToolTip']")
-private WebElement HoverTooltip;
+    @FindBy(xpath = "//button[@aria-describedby='buttonToolTip']")
+    private WebElement HoverTooltip;
 
-//datepicker
+    //datepicker
     @FindBy(xpath = "(//li[@id='item-2'])[3]")
     private WebElement DatePickerTab;
     @FindBy(xpath="//input[@id='datePickerMonthYearInput']")
     private WebElement DatePickerMonthYearInput;
-@FindBy(xpath="//div[contains(@class, 'react-datepicker__day') and contains(@class, 'react-datepicker__day--020') and contains(text(),'20')]")
-private WebElement Date;
+    @FindBy(xpath="//div[contains(@class, 'react-datepicker__day') and contains(@class, 'react-datepicker__day--020') and contains(text(),'20')]")
+    private WebElement Date;
 
     public void slider() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
@@ -61,23 +62,111 @@ private WebElement Date;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(widgets));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SliderTab);
-     SliderTab.click();
+        SliderTab.click();
         Actions moveSlider = new Actions(driver);
-  moveSlider.clickAndHold(SliderTooltip).moveByOffset(0, 40).release().perform(); // Adjust the x-offset value as needed
-
-
+        moveSlider.clickAndHold(SliderTooltip).moveByOffset(0, 40).release().perform(); // Adjust the x-offset value as needed
     }
+//        public void progressbar() throws InterruptedException {
+//            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ProgressBar);
+//            ProgressBar.click();
+//            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", StartStopButton);
+//            StartStopButton.click();
+//            String ProgressBarTooltip = "0";
+//            String  bar= tool.getAttribute("aria-valuenow");
+//            System.out.println(bar);
+//        while (ProgressBarTooltip.equals("50%")) {
+//            StopButton.click();
+//}
+//public void progressbar() throws InterruptedException {
+//    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ProgressBar);
+//    ProgressBar.click();
+//
+//    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", StartStopButton);
+//    StartStopButton.click();
+//
+//    // Initialize variable to hold the progress bar value
+//    String barValue = tool.getAttribute("aria-valuenow");
+//    System.out.println("Initial progress bar value: " + barValue);
+//
+//    // Loop until the progress bar reaches the desired value (e.g., 100%)
+//    while (!barValue.equals("100")) {
+//        // Fetch the current progress value
+//        barValue = tool.getAttribute("aria-valuenow");
+//
+//        // Print the progress value
+//        System.out.println("Current progress: " + barValue);
+//
+//        // Sleep for a short time to avoid overwhelming the browser with requests
+//      //  Thread.sleep(500);
+//    }
+//
+//    System.out.println("Progress bar reached 100%");
+//}
+//public void progressbar() throws InterruptedException {
+//    // Scroll into view and click on ProgressBar
+//    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ProgressBar);
+//    ProgressBar.click();
+//
+//    // Scroll into view and click on Start/Stop Button to start the progress
+//    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", StartStopButton);
+//    StartStopButton.click();
+//
+//    // Initialize variable to hold the progress bar value
+//    String barValue = tool.getAttribute("aria-valuenow");
+//    System.out.println("Initial progress bar value: " + barValue);
+//// Loop until the progress bar reaches 40%
+//    while (!barValue.equals("40")) {
+//        // Fetch the current progress value
+//        barValue = tool.getAttribute("aria-valuenow");
+//
+//        // Print the progress value
+//        System.out.println("Current progress: " + barValue);
 
+        // Sleep for a short time to avoid overwhelming the browser with requests
+//        Thread.sleep(500);
+//}
+//
+//    // Stop the progress bar when it reaches 40%
+//    System.out.println("Stopping progress at 40%");
+//    StartStopButton.click();
+//
+//   // StopButton.click();
+//}
     public void progressbar() throws InterruptedException {
+        // Scroll into view and click on ProgressBar
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ProgressBar);
         ProgressBar.click();
+
+        // Scroll into view and click on Start/Stop Button to start the progress
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", StartStopButton);
         StartStopButton.click();
-        String ProgressBarTooltip = "0";
-        while (ProgressBarTooltip.equals("50%")) {
-            StopButton.click();
+
+        // Initialize variable to hold the progress bar value
+        String barValue = tool.getAttribute("aria-valuenow");
+        System.out.println("Initial progress bar value: " + barValue);
+
+        // Loop until the progress bar reaches around 40%
+        while (Integer.parseInt(barValue) < 40) {
+            // Fetch the current progress value
+            barValue = tool.getAttribute("aria-valuenow");
+
+            // Print the progress value
+            System.out.println("Current progress: " + barValue);
+
+            // Sleep for a short time to avoid overwhelming the browser with requests
+            Thread.sleep(100);  // Adjust sleep time as needed
         }
+
+        // Stop the progress bar when it reaches around 40%
+        System.out.println("Stopping progress at around 40%");
+        StartStopButton.click();
     }
+
+
+
+
+
+
 
     public String tooltips(){
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", ToolTipTab);
@@ -101,4 +190,9 @@ private WebElement Date;
         wait.until(ExpectedConditions.visibilityOf(Date));
         Date.click();
     }
-}
+
+    }
+
+
+
+
