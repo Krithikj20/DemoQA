@@ -78,13 +78,10 @@ public void NewWindowFlow(){
     PreviousTab.closeCurrentTabAndSwitchToPrevious(driver);
     NewWindowMessageButton.click();
 
-   tab2.NewTabHandle();
-//    ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-//    System.out.println(tabs);
-//    driver.switchTo().window(tabs.get(tabs.size()-1));
+    // tab2.NewTabHandle();
 
-    String text=Window3Title.getText();
-    System.out.println(text);
+//    String text=Window3Title.getText();
+//    System.out.println(text);
 }
 
 }
