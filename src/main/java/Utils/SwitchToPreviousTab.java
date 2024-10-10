@@ -11,13 +11,15 @@ public class SwitchToPreviousTab {
         this.driver = driver;
     }
     public void closeCurrentTabAndSwitchToPrevious(WebDriver driver) {
+
+
         // Close current tab
         driver.close();
 
-        // Get all window handles
+       //  Get all window handles
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-
-        // Switch to the last handle in the list (previous tab)
+       //  Switch to the last handle in the list (previous tab)
         driver.switchTo().window(tabs.get(tabs.size() - 1));
+
     }
 }

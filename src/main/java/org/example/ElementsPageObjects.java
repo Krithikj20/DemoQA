@@ -57,6 +57,10 @@ private WebElement FirstName;
     @FindBy(xpath="//input[@id='department']")
     private WebElement Department;
 
+//checkbox locators
+    @FindBy(xpath="//span[contains(text(),'Check Box')]")
+    private WebElement CheckboxTab;
+
 
     public void TextBox() throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", ElementsCard);
@@ -103,5 +107,12 @@ private WebElement FirstName;
         Department.click();
         Department.sendKeys("QA");
         Submit.click();
+    }
+    public void Checkbox(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(CheckboxTab));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", CheckboxTab);
+        CheckboxTab.click();
+
     }
 }

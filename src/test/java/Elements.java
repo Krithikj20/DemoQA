@@ -7,6 +7,7 @@ public class Elements extends BaseTest
     public void ElementsTest() throws InterruptedException{
         ElementsPageObjects Elements = new ElementsPageObjects(driver);
         Elements.TextBox();
-       Elements.WebTables();
+     //  Elements.WebTables();
+       Elements.Checkbox();
     }
 }
