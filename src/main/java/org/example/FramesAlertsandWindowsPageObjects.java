@@ -1,6 +1,7 @@
 package org.example;
 
 import Utils.NewTab;
+import Utils.SwitchToPreviousTab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,7 @@ import org.openqa.selenium.interactions.SourceType;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.ArrayList;
 
 
 public class FramesAlertsandWindowsPageObjects {
@@ -20,6 +22,7 @@ public class FramesAlertsandWindowsPageObjects {
         PageFactory.initElements(driver, this);
     }
 
+    //newTab
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[3]")
     private WebElement Card;
 
@@ -31,6 +34,12 @@ public class FramesAlertsandWindowsPageObjects {
 
     @FindBy(xpath = "//h1[@id=\"sampleHeading\"]")
     public WebElement Title;
+
+    //New window
+    @FindBy(xpath="//button[@id='windowButton']")
+    private WebElement NewWindowButton;
+
+
 
 public String BrowserWindow(){
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Card);
@@ -46,5 +55,12 @@ public String BrowserWindow(){
     System.out.println(NewPageTitle);
    return NewPageTitle;
 
+
 }
+public void NewWindowFlow(){
+    SwitchToPreviousTab PreviousTab=new SwitchToPreviousTab(driver);
+    PreviousTab.closeCurrentTabAndSwitchToPrevious(driver);
+    NewWindowButton.click();
+}
+
 }

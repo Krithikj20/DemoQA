@@ -8,6 +8,7 @@ public class FramesAlertsandWindows extends BaseTest{
     public void FramesAlertsandWindowsTest(){
         FramesAlertsandWindowsPageObjects Frames=new FramesAlertsandWindowsPageObjects(driver);
        Assert.assertEquals(Frames.BrowserWindow(), "This is a sample page");
+       Frames.NewWindowFlow();
 
     }
 }
