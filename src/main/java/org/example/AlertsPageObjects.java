@@ -16,8 +16,8 @@ public class AlertsPageObjects {
 
 
     @FindBy(xpath = "(//div[@class='card mt-4 top-card'])[3]")
-    private WebElement Card;
-@FindBy(xpath = "(//li[@class=\"btn btn-light active\"])[1]")
+    public WebElement Card;
+@FindBy(xpath = "(//*[contains(text(),'Alerts')])[2]")
     public WebElement AlertsTab;
 
 public void alertsFlow(){
@@ -25,5 +25,6 @@ public void alertsFlow(){
     Card.click();
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", AlertsTab);
     AlertsTab.click();
+    
 }
 }
