@@ -43,5 +43,6 @@ public String Frames2Test(){
 
     String Frame2Title= Frame1Text.getText();
     return Frame2Title;
+
 }
 }
