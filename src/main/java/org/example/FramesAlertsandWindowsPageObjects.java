@@ -65,9 +65,14 @@ public String BrowserWindow(){
 
 }
 public void NewWindowFlow(){
-    SwitchToPreviousTab PreviousTab=new SwitchToPreviousTab(driver);
-   PreviousTab.closeCurrentTabAndSwitchToPrevious(driver);
-  NewWindowButton.click();
+    ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Card);
+
+    Card.click();
+    ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",BrowserWindowTab);
+    BrowserWindowTab.click();
+
+   SwitchToPreviousTab PreviousTab=new SwitchToPreviousTab(driver);
+      NewWindowButton.click();
 
     NewTab tab2=new NewTab(driver);
     tab2.NewTabHandle();
@@ -79,9 +84,10 @@ public void NewWindowFlow(){
     NewWindowMessageButton.click();
 
     tab2.NewTabHandle();
+    PreviousTab.closeCurrentTabAndSwitchToPrevious(driver);
 
-   String text=Window3Title.getText();
-   //System.out.println(text);
+//   String text=Window3Title.getText();
+// System.out.println(text);
 }
 
 }

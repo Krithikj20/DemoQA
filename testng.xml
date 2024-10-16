@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="/Users/krithikj/Desktop/DemoQa">
-
+<suite name="Suite" parallel="none">
+    <test verbose="2" preserve-order="true" name="firefox">
+        <parameter name="browser" value="firefox" />
     <classes>
-        <class name="Frames">
+        <class name="Alerts">
         </class>
     </classes>
 </test>
 
-    <test name="/Users/krithikj/AmazonProject/src/text/org/example/Alerts.java">
+    <test name="chrome">
+        <parameter name="browser" value="chrome" />
         <classes>
-            <class name="Alerts">
+            <class name="FramesAlertsandWindows">
                 <methods>
-                    <include name="AlertsTest"/>
-                    <!--                        <include name="productVerifyDetails"/>-->
+                    <include name="WindowsTest"/>
                 </methods>
             </class>
         </classes>
