@@ -28,7 +28,7 @@ public class BaseTest {
 
         }
         driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
+       driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
@@ -36,7 +36,7 @@ public class BaseTest {
     @AfterClass
     public void tearDown() {
 
-      driver.quit();
+    //  driver.quit();
         }
     }
 
