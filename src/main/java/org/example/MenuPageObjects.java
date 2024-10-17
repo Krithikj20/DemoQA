@@ -36,6 +36,10 @@ public class MenuPageObjects {
     public WebElement SelectValueDropdown;
     @FindBy(xpath = "(//div[@class=' css-2b097c-container'])[2]")
     public WebElement SelectOneDropdown;
+    @FindBy(xpath = "//select[@id='oldSelectMenu']")
+    public WebElement OldStyleSelectMenu;
+    @FindBy(xpath = "//option[@value='5']")
+    public WebElement Black;
 
     public void SelectMenu() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
@@ -48,19 +52,26 @@ public class MenuPageObjects {
 
 //    Select dropdown = new Select(driver.findElement(By.xpath("(//div[@class=' css-1hwfws3'])[1]")));
 //    dropdown.selectByVisibleText("Group 1, option 1");
-        SelectOneDropdown.click();
+        //SelectOneDropdown.click();
 //        List<WebElement> op = SelectOneDropdown.findElements(By.tagName("class"));
 //        int size = op.size();
 //        for (int i = 0; i < size; i++) {
 //            String options = op.get(i).getText();
 //            System.out.println(options);
 
-            Select select = new Select(SelectOneDropdown);
-            List<WebElement> options = select.getOptions();
-            for (WebElement t : options)
-            {
-                System.out.println(t.getText());
-            }
+//            Select select = new Select(SelectOneDropdown);
+//            List<WebElement> options = select.getOptions();
+//            for (WebElement t : options)
+//            {
+//                System.out.println(t.getText());
+//            }
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", OldStyleSelectMenu);
+
+        OldStyleSelectMenu.click();
+//        Select oldvalue = new Select(Black);
+//   oldvalue.selectByVisibleText("Black");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Black);
+        Black.click();
         }
 
 }
