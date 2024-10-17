@@ -6,5 +6,6 @@ public class BookStore extends BaseTest{
     public void BoooksApp(){
         BookStorePageObjects Books =new BookStorePageObjects(driver);
         Books.BooksLogin();
+        Books.BookStoreFlow();
     }
 }
