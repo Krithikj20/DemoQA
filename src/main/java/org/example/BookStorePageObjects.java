@@ -65,6 +65,6 @@ public WebElement lastname;
         BookstoreTab.click();
         searchBox.sendKeys("Git");
         GitBook.click();
-
+driver.navigate().back();
     }
 }
