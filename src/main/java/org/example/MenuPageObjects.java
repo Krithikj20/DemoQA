@@ -40,19 +40,25 @@ public class MenuPageObjects {
     public WebElement OldStyleSelectMenu;
     @FindBy(xpath = "//option[@value='5']")
     public WebElement Black;
+    @FindBy(xpath = "(//div[@class=' css-2b097c-container'])[4]")
+    public WebElement multiselect;
 
-    public void SelectMenu() {
+    public void SelectMenu() throws InterruptedException {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", WidgetsCard);
         WidgetsCard.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(widgets));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", SelectMenuTab);
         SelectMenuTab.click();
-        //   SelectValueDropdown.click();
+        SelectValueDropdown.click();
 
 //    Select dropdown = new Select(driver.findElement(By.xpath("(//div[@class=' css-1hwfws3'])[1]")));
 //    dropdown.selectByVisibleText("Group 1, option 1");
-        //SelectOneDropdown.click();
+
+
+    //  SelectOneDropdown.click();
+
+
 //        List<WebElement> op = SelectOneDropdown.findElements(By.tagName("class"));
 //        int size = op.size();
 //        for (int i = 0; i < size; i++) {
@@ -65,13 +71,35 @@ public class MenuPageObjects {
 //            {
 //                System.out.println(t.getText());
 //            }
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", OldStyleSelectMenu);
 
-        OldStyleSelectMenu.click();
-//        Select oldvalue = new Select(Black);
-//   oldvalue.selectByVisibleText("Black");
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Black);
-        Black.click();
+//        try {
+//            WebElement elem= driver.findElement(By.xpath("(//*[name()='svg'][@class='css-19bqh2r'])[1]"));
+//            elem.click();
+//        } catch(Exception e) {
+////            break;
+//        }
+       // WebElement dropdownElement = driver.findElement(By.xpath("(//*[name()='svg'][@class='css-19bqh2r'])[1]"));
+//        Select select = new Select(driver.findElement(By.xpath("//div[@id='withOptGroup']//div[contains(@class,'css-1hwfws3')]")));
+//        select.selectByVisibleText("Group 1, option 2");
+
+
+        WebElement dropdownElement = driver.findElement(By.xpath("//div[@id='withOptGroup']//div[contains(@class,'css-1hwfws3')]"));
+                dropdownElement.click();
+        WebElement option = driver.findElement(By.xpath("//li[text()='Group 1, option 1']"));
+        option.click();
+
+        
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", OldStyleSelectMenu);
+//        OldStyleSelectMenu.click();
+////        Select oldvalue = new Select(Black);
+////   oldvalue.selectByVisibleText("Black");
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Black);
+//        Black.click();
+//        Thread.sleep(4000);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", multiselect);
+//
+//        multiselect.click();
         }
-
 }
+
+
