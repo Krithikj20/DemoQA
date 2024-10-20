@@ -14,7 +14,7 @@ public class NewTab {
 
     public void NewTabHandle() {
         String FirstHandle = driver.getWindowHandle(); //1
-        Set<String> handles = driver.getWindowHandles();// 1 and 2 tabs
+        Set<String> handles = driver.getWindowHandles();// 1 , 2 , 3, 4
         for (String actual : handles) {
             if (!actual.equalsIgnoreCase(FirstHandle)) {
                 driver.switchTo().window(actual);

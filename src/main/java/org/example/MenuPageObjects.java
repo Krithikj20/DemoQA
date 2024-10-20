@@ -83,22 +83,22 @@ public class MenuPageObjects {
 //        select.selectByVisibleText("Group 1, option 2");
 
 
-        WebElement dropdownElement = driver.findElement(By.xpath("//div[@id='withOptGroup']//div[contains(@class,'css-1hwfws3')]"));
-                dropdownElement.click();
-        WebElement option = driver.findElement(By.xpath("//li[text()='Group 1, option 1']"));
-        option.click();
+//        WebElement dropdownElement = driver.findElement(By.xpath("//div[@id='withOptGroup']//div[contains(@class,'css-1hwfws3')]"));
+//                dropdownElement.click();
+//        WebElement option = driver.findElement(By.xpath("//li[text()='Group 1, option 1']"));
+//        option.click();
 
-        
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", OldStyleSelectMenu);
-//        OldStyleSelectMenu.click();
-////        Select oldvalue = new Select(Black);
-////   oldvalue.selectByVisibleText("Black");
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Black);
-//        Black.click();
-//        Thread.sleep(4000);
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", multiselect);
-//
-//        multiselect.click();
+
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", OldStyleSelectMenu);
+        OldStyleSelectMenu.click();
+//        Select oldvalue = new Select(Black);
+//   oldvalue.selectByVisibleText("Black");
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Black);
+        Black.click();
+        Thread.sleep(4000);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", multiselect);
+
+        multiselect.click();
         }
 }
 
