@@ -38,7 +38,7 @@ public class FramesPageObjects {
         return Frame1Title;
     }
 public String Frames2Test(){
-    driver.switchTo().defaultContent();
+    driver.switchTo().defaultContent();//no such elemt exeption
     driver.switchTo().frame(NewFrame2);
 
     String Frame2Title= Frame1Text.getText();
