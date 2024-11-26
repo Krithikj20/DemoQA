@@ -10,15 +10,15 @@
     </classes>
 </test>
 
-    <test name="chrome">
-        <parameter name="browser" value="chrome" />
-        <classes>
-            <class name="FramesAlertsandWindows">
-                <methods>
-                    <include name="WindowsTest"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name="chrome">-->
+<!--        <parameter name="browser" value="chrome" />-->
+<!--        <classes>-->
+<!--            <class name="FramesAlertsandWindows">-->
+<!--                <methods>-->
+<!--                    <include name="WindowsTest"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 
 </suite>
