@@ -50,7 +50,6 @@ public WebElement Window3Title;
 
 public String BrowserWindow(){
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Card);
-
     Card.click();
     ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",BrowserWindowTab);
     BrowserWindowTab.click();
@@ -65,7 +64,9 @@ public String BrowserWindow(){
 
 }
 public void NewWindowFlow(){
+
     ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Card);
+
 
     Card.click();
     ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",BrowserWindowTab);
@@ -86,8 +87,13 @@ public void NewWindowFlow(){
     tab2.NewTabHandle();
     PreviousTab.closeCurrentTabAndSwitchToPrevious(driver);
 
+
+
+
 //   String text=Window3Title.getText();
 // System.out.println(text);
+
+
 }
 
 }
